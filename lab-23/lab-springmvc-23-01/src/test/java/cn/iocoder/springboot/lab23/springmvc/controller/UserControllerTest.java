@@ -20,6 +20,9 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
 @AutoConfigureMockMvc
+/**
+ * 用于自动化配置我们稍后注入的 MockMvc Bean 对象 mvc 。在后续的测试中，我们会看到都是通过 mvc 调用后端 API 接口。而每一次调用后端 API 接口，都会执行真正的后端逻辑。因此，整个逻辑，走的是集成测试，会启动一个真实的 Spring 环境。
+ */
 public class UserControllerTest {
 
     @Autowired
@@ -57,6 +60,24 @@ public class UserControllerTest {
                 "\"id\": 1,\n" +
                 "\"username\": \"username:1\"\n" +
                 "}")); // 响应结果
+
+
+        ResultActions perform = mvc.perform(MockMvcRequestBuilders.get("/users2/list"));
+        perform.andExpect(MockMvcResultMatchers.status().isOk());
+        perform.andExpect(MockMvcResultMatchers.content().json("[\n" +
+                "  {\n" +
+                "    \"id\": 1,\n" +
+                "    \"username\": \"yudaoyuanma\"\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"id\": 2,\n" +
+                "    \"username\": \"woshiyutou\"\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"id\": 3,\n" +
+                "    \"username\": \"chifanshuijiao\"\n" +
+                "  }\n" +
+                "]"));
     }
 
     @Test

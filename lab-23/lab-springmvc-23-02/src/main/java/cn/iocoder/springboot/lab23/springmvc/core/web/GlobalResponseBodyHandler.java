@@ -16,7 +16,7 @@ public class GlobalResponseBodyHandler implements ResponseBodyAdvice {
     public boolean supports(MethodParameter returnType, Class converterType) {
         return true;
     }
-
+    //强制要求 Controller 返回结果的类型是 CommonResult ，而不是修改一个方法的返回结果的类型
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class selectedConverterType,
                                   ServerHttpRequest request, ServerHttpResponse response) {

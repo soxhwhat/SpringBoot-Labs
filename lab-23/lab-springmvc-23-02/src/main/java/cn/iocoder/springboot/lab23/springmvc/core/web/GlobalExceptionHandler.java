@@ -19,6 +19,8 @@ public class GlobalExceptionHandler {
 
     /**
      * 处理 ServiceException 异常
+     * 通过添加 @ExceptionHandler 注解，定义每个方法对应处理的异常。
+     * 并且，也添加了 @ResponseBody 注解，标记直接使用返回结果作为 API 的响应。
      */
     @ResponseBody
     @ExceptionHandler(value = ServiceException.class)

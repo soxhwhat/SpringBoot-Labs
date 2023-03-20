@@ -80,7 +80,7 @@ public class CommonResult<T> implements Serializable {
         this.data = data;
     }
 
-    @JsonIgnore
+    @JsonIgnore //忽略，避免 jackson 序列化给前端(避坑)
     public boolean isSuccess() {
         return CODE_SUCCESS.equals(code);
     }

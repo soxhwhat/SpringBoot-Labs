@@ -92,9 +92,11 @@ public class UserController {
         return new UserVO().setId(10).setUsername(UUID.randomUUID().toString());
     }
 
+    //我们的每一个 API 请求，会对应到一个 handler 处理器。
     @GetMapping("/exception-03")
     public void exception03() {
         logger.info("[exception03]");
+        //当一个控制器抛出一个异常时，Spring会尝试找到一个能够处理该异常的HandlerExceptionResolver。如果找到了，那么该异常会被传递给HandlerExceptionResolver进行处理，而不会执行拦截器的postHandle()方法。
         throw new ServiceException(ServiceExceptionEnum.USER_NOT_FOUND);
     }
 

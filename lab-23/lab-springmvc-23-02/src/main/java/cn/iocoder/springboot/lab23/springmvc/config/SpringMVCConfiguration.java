@@ -147,13 +147,6 @@ public class SpringMVCConfiguration implements WebMvcConfigurer {
 //        converters.add(new MappingJackson2XmlHttpMessageConverter(xmlBuilder.build()));
 //    }
 
-//    @Override
-//    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-//        // 增加 XML 消息转换器
-//        Jackson2ObjectMapperBuilder xmlBuilder = Jackson2ObjectMapperBuilder.xml();
-//        xmlBuilder.indentOutput(true);
-//        converters.add(new MappingJackson2XmlHttpMessageConverter(xmlBuilder.build()));
-//    }
 
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
