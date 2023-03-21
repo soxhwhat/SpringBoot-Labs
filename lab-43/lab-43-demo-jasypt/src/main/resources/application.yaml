@@ -8,4 +8,6 @@ jasypt:
   # jasypt 配置项，对应 JasyptEncryptorConfigurationProperties 配置类
   encryptor:
     algorithm: PBEWithMD5AndDES # 加密算法
+#    因为我们设置了 jasypt.encryptor.password 配置项读取 JASYPT_PASSWORD 环境变量
+#    Spring Boot 不仅仅可以从配置文件获得配置，还可以从环境变量、命令行参数、jar 外部配置文件等等。
     password: ${JASYPT_PASSWORD} # 加密秘钥

@@ -14,6 +14,7 @@ public class DataSourceConfig {
     /**
      * 创建 orders 数据源
      */
+    //@ConfigurationProperties 注解除了支持添加在类上，也只支持添加在方法上。
     @Primary
     @Bean(name = "ordersDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.orders") // 读取 spring.datasource.orders 配置到 HikariDataSource 对象

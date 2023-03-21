@@ -20,6 +20,9 @@
         </dependency>
 
         <!-- Spring Boot 配置处理器 -->
+        <!-- 编译项目时，会扫描@ConfigurationProperties注解，生成 spring-configuration-metadata.json 配置元数据文件给 IDEA。       -->
+        <!-- 1.在yaml配置文件中，添加配置项，IDEA会提供提示       -->
+        <!-- 2.点击配置项时，可以跳转到对应的@ConfigurationProperties注解的配置类       -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>

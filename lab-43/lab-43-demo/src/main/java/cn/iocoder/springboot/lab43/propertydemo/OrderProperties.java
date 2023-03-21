@@ -17,10 +17,10 @@ public class OrderProperties {
      */
     private Integer createFrequencySeconds;
 
-//    /**
-//     * 配置描述
-//     */
-//    private String desc;
+    /**
+     * 配置描述
+     */
+    private String desc;
 
     public Integer getPayTimeoutSeconds() {
         return payTimeoutSeconds;
@@ -40,13 +40,13 @@ public class OrderProperties {
         return this;
     }
 
-//    public String getDesc() {
-//        return desc;
-//    }
-//
-//    public OrderProperties setDesc(String desc) {
-//        this.desc = desc;
-//        return this;
-//    }
+    public String getDesc() {
+        return desc;
+    }
+
+    public OrderProperties setDesc(String desc) {
+        this.desc = desc;
+        return this;
+    }
 
 }

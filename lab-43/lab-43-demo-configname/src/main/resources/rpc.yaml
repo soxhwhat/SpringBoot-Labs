@@ -1,1 +1,3 @@
+#在图中，我们可以看到在 demo-application 项目中，引入 demo-rpc-service 和 demo-business 项目。而引入的每个项目，都有自己的配置文件。如果每个项目都使用 application.yaml 配置文件，则会有且仅有一个生效。
+#因此，我们给每个项目创建了一个独立的配置文件名，同时设置 spring.config.name 配置项为 application,demo,rpc。这样，Spring Boot 就会读取这三个配置文件。并且，它和「6. 多环境配置」是可以共存使用的。
 rpc-test: yeah

@@ -1,2 +1,4 @@
+#针对多环境场景下，我们会给每个环境创建一个配置文件 application-${profile}.yaml。其中，${profile} 为环境名，对应到 Spring Boot 项目生效的 Profile。
+#我们在生产环境的服务器上，使用 java -jar xxx.jar --spring.profiles.active=prod 命令
 server:
   port: 8081

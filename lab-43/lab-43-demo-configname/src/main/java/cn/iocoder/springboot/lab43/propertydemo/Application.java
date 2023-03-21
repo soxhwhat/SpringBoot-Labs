@@ -9,6 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.config.ConfigFileApplicationListener;
 import org.springframework.stereotype.Component;
 
+import javax.swing.*;
+
 @SpringBootApplication
 public class Application {
 
@@ -19,7 +21,9 @@ public class Application {
     private static final String CONFIG_NAME_VALUE = "application,rpc";
 
     public static void main(String[] args) {
-        // 设置环境变量
+        // 设置环境变量 因为 spring.config.name 配置项，必须在读取配置文件之前完成设置，所以我们在 <X> 处，通过环境变量来设置。
+        // 我们给每个项目创建了一个独立的配置文件名，同时设置 spring.config.name 配置项为 application,demo,rpc。这样，
+        // Spring Boot 就会读取这三个配置文件。并且，它和「6. 多环境配置」是可以共存使用的。
         System.setProperty(ConfigFileApplicationListener.CONFIG_NAME_PROPERTY, CONFIG_NAME_VALUE);
 
         // 启动 Spring Boot 应用

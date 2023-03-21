@@ -16,6 +16,7 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
+    //在 OrderPropertiesCommandLineRunner 类中，我们测试了使用 @ConfigurationProperties 注解的 OrderProperties 配置类，读取 order 配置项的效果。
     @Component
     public class OrderPropertiesCommandLineRunner implements CommandLineRunner {
 
@@ -28,10 +29,13 @@ public class Application {
         public void run(String... args) {
             logger.info("payTimeoutSeconds:" + orderProperties.getPayTimeoutSeconds());
             logger.info("createFrequencySeconds:" + orderProperties.getCreateFrequencySeconds());
+            //配置随机值
+            logger.info("desc:" + orderProperties.getDesc());
         }
 
     }
 
+    // ValueCommandLineRunner 类中，我们测试了使用 @Value 注解，读取 order 配置项的效果。
     @Component
     public class ValueCommandLineRunner implements CommandLineRunner {
 
