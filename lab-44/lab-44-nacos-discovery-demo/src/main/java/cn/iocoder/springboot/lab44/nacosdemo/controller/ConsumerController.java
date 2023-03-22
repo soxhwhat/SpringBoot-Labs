@@ -16,6 +16,7 @@ import java.util.List;
 public class ConsumerController {
 
     @NacosInjected
+    //namingService 属性，NamingService 对象，用于调用 Nacos 作为命名服务提供的 API。不过它比较特殊，需要通过 @NacosInjected 注解，来进行注入到 Bean 中。
     private NamingService namingService;
 
     private RestTemplate restTemplate = new RestTemplate();
