@@ -1,6 +1,8 @@
 #server:
 #  port: 7070
-
+#我们会创建 application.yaml 配置文件，放不同环境的相同配置。另外，我们会创建 application.yaml 配置文件，放不同环境的相同配置。例如说，spring.application.name 配置项，肯定是相同的啦。
 spring:
   application:
     name: demo-application
+  profiles:
+    active: dev

@@ -1,9 +1,11 @@
 nacos:
   # Nacos 配置中心的配置项，对应 NacosConfigProperties 配置类
   config:
-    server-addr: 127.0.0.1:18848 # Nacos 服务器地址
+    server-addr: 127.0.0.1:8848 # Nacos 服务器地址
     bootstrap:
+#      是否开启 Nacos 配置预加载功能。默认为 false。😈 这里，我们设置为 true，保证使用 @Value 和 @ConfigurationProperties 注解，可以读取到来自 Nacos 的配置项。
       enable: true # 是否开启 Nacos 配置预加载功能。默认为 false。
+#      是否开启 Nacos 支持日志级别的加载时机。默认为 false。😈 这里，我们设置为 true，保证 Spring Boot 应用的 Logger 能够使用来自 Nacos 的配置项。
       log-enable: true # 是否开启 Nacos 支持日志级别的加载时机。默认为 false。
     data-id: example # 使用的 Nacos 配置集的 dataId。
     type: YAML # 使用的 Nacos 配置集的配置格式。默认为 PROPERTIES。

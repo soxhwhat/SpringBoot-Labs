@@ -5,7 +5,7 @@ nacos:
     bootstrap:
       enable: true # 是否开启 Nacos 配置预加载功能。默认为 false。
       log-enable: true # 是否开启 Nacos 支持日志级别的加载时机。默认为 false。
-    data-id: example-jasypt # 使用的 Nacos 配置集的 dataId。
+    data-id: example-jasypt # 使用的 Nacos 配置集的 dataId。为了方便起见，JASYPT提供了自动解密功能，可以在应用程序启动时自动解密配置项。
     type: YAML # 使用的 Nacos 配置集的配置格式。默认为 PROPERTIES。
     group: DEFAULT_GROUP # 使用的 Nacos 配置分组，默认为 DEFAULT_GROUP。
     namespace: # 使用的 Nacos 的命名空间，默认为 null。
