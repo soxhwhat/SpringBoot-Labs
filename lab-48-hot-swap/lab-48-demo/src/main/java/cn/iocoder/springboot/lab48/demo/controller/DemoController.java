@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/demo")
 public class DemoController {
-
+//快捷键：Ctrl+F9
     @GetMapping("/echo")
     public String echo() {
-        return "echo";
+        return "www";
     }
 
 }
