@@ -2,5 +2,6 @@ spring:
   data:
     # Elasticsearch 配置项
     elasticsearch:
-      cluster-name: docker-cluster # 集群名
-      cluster-nodes: 47.100.196.86:9300 # 集群节点
+
+      cluster-name: # 集群名
+      cluster-nodes: http://localhost:9200 # 集群节点

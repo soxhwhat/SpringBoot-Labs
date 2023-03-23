@@ -48,14 +48,17 @@ public class ProductRepositoryTest {
 
     @Test // 根据 ID 编号，查询一条记录
     public void testSelectById() {
+        // Optional 是 Java 8 的一个特性，可以避免空指针异常
         Optional<ESProductDO> userDO = productRepository.findById(1);
         System.out.println(userDO.isPresent());
     }
 
     @Test // 根据 ID 编号数组，查询多条记录
     public void testSelectByIds() {
+        //Iterable迭代器
         Iterable<ESProductDO> users = productRepository.findAllById(Arrays.asList(1, 4));
         users.forEach(System.out::println);
+
     }
 
 }
