@@ -15,6 +15,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 @SpringBootApplication
+//DiscoveryClient 对象，服务发现客户端，上文我们已经介绍过。这里我们注入的不是 Eureka 提供的 EurekaDiscoveryClient，保证通用性。未来如果我们不使用 Eureka 作为注册中心，而是使用 Nacos 或则 Zookeeper 时，则无需改动这里的代码。
 // @EnableDiscoveryClient
 public class DemoConsumerApplication {
 
@@ -40,6 +41,7 @@ public class DemoConsumerApplication {
         @Autowired
         private RestTemplate restTemplate;
         @Autowired
+        //loadBalancerClient 属性，LoadBalancerClient 对象，负载均衡客户端。稍后我们会使用它，从 Eureka 获取的服务 demo-provider 的实例列表中，选择一个进行 HTTP 调用。
         private LoadBalancerClient loadBalancerClient;
 
         @GetMapping("/hello")
