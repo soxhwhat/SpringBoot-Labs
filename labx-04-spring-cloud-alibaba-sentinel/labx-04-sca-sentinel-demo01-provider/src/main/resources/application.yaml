@@ -5,9 +5,9 @@ spring:
   cloud:
     # Sentinel 配置项，对应 SentinelProperties 配置属性类
     sentinel:
-      enabled: true # 是否开启。默认为 true 开启
-      eager: true # 是否饥饿加载。默认为 false 关闭
+      enabled: true # 是否开启。默认为 true 开启 设置是否开启 Sentinel，默认为 true 开启，所以一般不用主动设置。如果胖友关闭 Sentinel 的功能，例如说在本地开发的时候，可以设置为 false 关闭。
+      eager: true # 是否饥饿加载。默认为 false 关闭 设置是否饥饿加载，默认为 false 关闭。默认情况下，Sentinel 是延迟初始化，在首次使用到 Sentinel 才进行初始化。通过设置为 true 时，在项目启动时就会将 Sentinel 直接初始化，完成向 Sentinel 控制台进行注册。
       transport:
-        dashboard: 127.0.0.1:7070 # Sentinel 控制台地址
+        dashboard: 127.0.0.1:8858 # Sentinel 控制台地址
       filter:
-        url-patterns: /** # 拦截请求的地址。默认为 /*
+        url-patterns: /** # 拦截请求的地址。默认为 /* 因为 filter.url-patterns 配置项的默认值为 /*，只能拦截根目录的请求，显然不满足我们的日常需求，因此艿艿修改成了 /** 拦截所有请求。

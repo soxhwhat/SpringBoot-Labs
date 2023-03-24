@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
+//@EnableFeignClients 注解，添加在类上，声明开启 Feign 客户端的功能。
 @EnableFeignClients
 public class DemoConsumerApplication {
 

@@ -10,7 +10,7 @@ public class DemoController {
 //快捷键：Ctrl+F9
     @GetMapping("/echo")
     public String echo() {
-        return "www";
+        return "test";
     }
 
 }
