@@ -21,6 +21,9 @@ spring:
                 redis-rate-limiter.replenishRate: 1 # 令牌桶的每秒放的数量
                 redis-rate-limiter.burstCapacity: 2 # 令牌桶的最大令牌数
                 key-resolver: "#{@ipKeyResolver}" # 获取限流 KEY 的 Bean 的名字
+        #urstCapacity 参数，我们可以近似理解为是每秒最大的请求数。因此每请求一次，都会从桶里获取掉一块令牌。
+        #replenishRate 参数，我们可以近似理解为是每秒平均的请求数。假设在令牌桶为空的情况下，一秒最多放这么多令牌，所以最大请求书当然也是这么多。
+        #实际上，在令牌桶满的情况下，每秒最大的请求数是 burstCapacity + replenishRate，好好理解下。
         - id: oschina # 路由的编号
           uri: https://www.oschina.net # 路由的目标地址
           predicates: # 断言，作为路由的匹配条件，对应 RouteDefinition 数组

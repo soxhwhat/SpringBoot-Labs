@@ -11,11 +11,14 @@ spring:
       # 路由配置项，对应 RouteDefinition 数组
       routes:
         - id: hystrix_test
+#          设置路由的 uri 为 http://127.0.0.1:18181，一个不存在的目标 URI，用于模拟转发请求失败，从而触发 Hystrix fallback 的情况
           uri: http://127.0.0.1:18181
           predicates:
             - Path=/**
           filters:
             - name: Hystrix
               args:
+                #name：对应的 Hystrix Command 名字，后续可以通过 hystrix.command.{name} 配置项，来设置 name 对应的 Hystrix Command 的配置，例如说超时时间、隔离策略等等。
+                #fallbackUri：处理 Hystrix fallback 的情况，重定向到指定地址。注意，要么为空，要么必须以 forward: 开头
                 name: fallbackcmd # 对应的 Hystrix Command 名字
                 fallbackUri: forward:/fallback # 处理 Hystrix fallback 的情况，重定向到指定地址

@@ -23,7 +23,13 @@ spring:
           filters: # 过滤器，对请求进行拦截，实现自定义的功能，对应 FilterDefinition 数组
             - StripPrefix=1
 
-      # Reactor Netty 相关配置
+      # Reactor Netty 相关配置Reactor Netty 提供 Wiretap（窃听）功能，让 Reactor Netty 打印包含请求和响应信息的日志，例如说请求和响应的 Header、Body 等等。
+      #
+      #开启 Reactor Netty 的 Wiretap 功能一共有三个配置项：
+      #
+      #设置 reactor.netty 配置项为 DEBUG 或 TRACE。
+      #设置 spring.cloud.gateway.httpserver.wiretap 配置项为 true，开启 HttpServer Wiretap 功能。
+      #设置 spring.cloud.gateway.httpclient.wiretap 配置项为 true，开启 HttpClient Wiretap 功能。
       httpserver:
         wiretap: true
       httpclient:

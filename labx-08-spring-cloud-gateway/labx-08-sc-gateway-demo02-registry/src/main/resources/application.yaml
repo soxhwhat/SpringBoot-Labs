@@ -27,8 +27,31 @@ spring:
         locator:
           enabled: true # 是否开启，默认为 false 关闭
           url-expression: "'lb://' + serviceId" # 路由的目标地址的表达式，默认为 "'lb://' + serviceId"
+#可能 url-expression 配置项有点费解，我们来重点解释下。
+#lb:// 前缀，表示将请求负载均衡转发到对应的服务的实例。
+#"'lb://' + serviceId" Spring EL 表达式，将从注册中心获得到的服务列表，每一个服务的名字对应 serviceId，最终使用 Spring EL 表达式进行格式化。
 
     # Nacos 作为注册中心的配置项
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848 # Nacos 服务器地址
+
+
+#     等价于
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: ReactiveCompositeDiscoveryClient_user-service
+#          uri: lb://user-service
+#          predicates:
+#            - Path=/user-service/**
+#          filters:
+#            - RewritePath=/user-service/(?<remaining>.*), /${remaining} # 将 /user-service 前缀剔除
+#        - id: ReactiveCompositeDiscoveryClient_order-service
+#          uri: lb://order-service
+#          predicates:
+#            - Path=/order-service/**
+#          filters:
+#            - RewritePath=/order-service/(?<remaining>.*), /${remaining} # 将 /order-service 前缀剔除
+

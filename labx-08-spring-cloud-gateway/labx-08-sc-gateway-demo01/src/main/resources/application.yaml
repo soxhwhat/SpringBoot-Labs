@@ -13,9 +13,11 @@ spring:
         - id: yudaoyuanma # 路由的编号
           uri: http://www.iocoder.cn # 路由到的目标地址
           predicates: # 断言，作为路由的匹配条件，对应 RouteDefinition 数组
-            - Path=/blog
+            - Path=/hello
           filters:
-            - StripPrefix=1
+            - StripPrefix=1 # 这里配置的 StripPrefix 会将请求的 Path 去除掉前缀。可能有点不好理解，我们以第一个 Route 举例子，假设我们请求 http://127.0.0.1:8888/blog 时：
+#  如果有配置 StripPrefix 过滤器，则转发到的最终 URI 为 http://www.iocoder.cn，正确返回首页
+#  如果未配置 StripPrefix 过滤器，转发到的最终 URI 为 http://www.iocoder.cn/blog，错误返回 404
         - id: oschina # 路由的编号
           uri: https://www.oschina.net # 路由的目标地址
           predicates: # 断言，作为路由的匹配条件，对应 RouteDefinition 数组

@@ -4,10 +4,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import reactor.core.publisher.Mono;
 
-//@Configuration
+@Configuration
 public class GatewayConfig {
 
     private Logger logger = LoggerFactory.getLogger(GatewayConfig.class);
@@ -41,5 +42,15 @@ public class GatewayConfig {
                     .then(Mono.<Void>fromRunnable(() -> logger.info("[third][post]")));
         };
     }
-
+/**
+ * // 执行结果
+ * ## pre 正序
+ * [first][pre]
+ * [second][pre]
+ * [third][pre]
+ * ## post 倒序
+ * [third][post]
+ * [second][post]
+ * [first][post]
+ */
 }
