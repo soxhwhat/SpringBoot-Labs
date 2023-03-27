@@ -16,7 +16,12 @@ public class FileController {
 
     // Minio 配置。实际项目中，定义到 application.yml 配置文件中
     private String endpoint = "http://127.0.0.1:9000";
-    private String bucket = "yudaoyuanma";
+    private String bucket = "test";
+
+    @GetMapping("/test")
+    public String test(){
+        return "test";
+    }
 
     /**
      * 上传文件

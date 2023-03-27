@@ -80,7 +80,7 @@
 <!--        <module>lab-68-spring-security-oauth</module>-->
 <!--        <module>lab-69-proxy</module>-->
 <!--        <module>lab-70-db-doc</module>-->
-        <module>lab-71-http-debug</module>
+<!--        <module>lab-71-http-debug</module>-->
 
         <!-- Spring Cloud 示例 -->
 <!--        <module>labx-01-spring-cloud-alibaba-nacos-discovery</module>-->
@@ -119,7 +119,7 @@
 <!--        <module>labx-28</module>-->
 <!--        <module>labx-29-spring-cloud-consul-bus</module>-->
 <!--        <module>labx-30-spring-cloud-grpc</module>-->
-<!--        <module>lab-72-minio</module>-->
+        <module>lab-72-minio</module>
     </modules>
 
 </project>
