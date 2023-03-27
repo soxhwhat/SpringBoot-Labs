@@ -1,3 +1,5 @@
+#IDEA HTTP Client 提供 Response Handler Script 机制，允许我们通过编写 JavaScript 脚本，进行响应结果的处理。
+#同时，它又提供了断言函数，这样它不仅仅能够作为一个 HTTP API 的调用工具，还能作为自动化测试工具。
 ### 001 测试 /user/login：登陆成功
 POST http://127.0.0.1:8080/user/login
 Content-Type: application/x-www-form-urlencoded

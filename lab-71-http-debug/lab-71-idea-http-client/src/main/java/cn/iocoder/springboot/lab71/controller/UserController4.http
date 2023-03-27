@@ -1,3 +1,7 @@
+#IDEA HTTP Client 提供了环境变量的设置函数，这样配合 Response Handler Script 机制，可以实现响应结果的暂存与使用的功能。
+#
+#例如说，我们可以先调用登陆接口，接响应结果中的 token 暂存到环境变量中。然后，在调用其它接口时，就可以带上暂存到环境变量中的 token 啦。
+#我们暂存到环境变量的有效期有多久？答案是，存储在内存中，直到重启 IDEA 后失效。
 ### 测试 /user/login：登陆成功
 POST http://127.0.0.1:8080/user/login
 Content-Type: application/x-www-form-urlencoded
