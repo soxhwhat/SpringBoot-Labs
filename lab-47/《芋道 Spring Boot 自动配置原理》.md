@@ -109,3 +109,25 @@ public class YunaiServerAutoConfiguration {
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 cn.iocoder.springboot.lab47.yunaiserver.autoconfigure.YunaiServerAutoConfiguration
 ```
+
+
+### Spring Boot Jar 启动原理
+1. 概述
+   Spring Boot 提供了 Maven 插件 spring-boot-maven-plugin，可以方便的将 Spring Boot 项目打成 jar 包或者 war 包。
+
+考虑到部署的便利性，我们绝大多数 99.99% 的场景下，我们会选择打成 jar 包。这样，我们就无需在部署项目的服务器上，配置相应的 Tomcat、Jetty 等 Servlet 容器。
+
+那么，jar 包是如何运行，并启动 Spring Boot 项目的呢？这个就是本文的目的，一起弄懂 Spring Boot jar 包的运行原理。
+![](![img_2.png](img_2.png))
+- META-INF 目录：通过 MANIFEST.MF 文件提供 jar 包的元数据，声明了 jar 的启动类。
+
+- org 目录：为 Spring Boot 提供的 spring-boot-loader 项目，它是 java -jar 启动 Spring Boot 项目的秘密所在，也是稍后我们将深入了解的部分。
+
+Spring Boot Loader provides the secret sauce that allows you to build a single jar file that can be launched using java -jar. Generally you will not need to use spring-boot-loader directly, but instead work with the Gradle or Maven plugin.
+
+- BOOT-INF/lib 目录：我们 Spring Boot 项目中引入的依赖的 jar 包们。spring-boot-loader 项目很大的一个作用，就是解决 jar 包里嵌套 jar 的情况，如何加载到其中的类。
+
+- BOOT-INF/classes 目录：我们在 Spring Boot 项目中 Java 类所编译的 .class、配置文件等等。
+2. MANIFEST.MF
+3. JarLauncher
+4. LaunchedURLClassLoader

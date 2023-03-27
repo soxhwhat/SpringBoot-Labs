@@ -10,6 +10,10 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 
 @Configuration
 @EnableWebSocket // 开启 Spring WebSocket
+/**
+ * 在类上，添加 @EnableWebSocket 注解，开启 Spring WebSocket 功能。
+ * 实现 WebSocketConfigurer 接口，自定义 WebSocket 的配置。具体的，胖友可以看看 #registerWebSocketHandlers(registry) 方法，配置 WebSocket 处理器、拦截器，以及允许跨域。
+ */
 public class WebSocketConfiguration implements WebSocketConfigurer {
 
     @Override

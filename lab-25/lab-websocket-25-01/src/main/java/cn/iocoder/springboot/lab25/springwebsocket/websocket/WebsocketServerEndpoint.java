@@ -26,6 +26,10 @@ import java.util.Objects;
 
 @Controller
 @ServerEndpoint("/")
+/**
+ * 在类上，添加 JSR-356 定义的 @ServerEndpoint 注解，标记这是一个 WebSocket EndPoint ，路径为 / 。
+ * WebSocket 一共有四个事件，分别对应使用 JSR-356 定义的 @OnOpen、@OnMessage、@OnClose、@OnError 注解。
+ */
 public class WebsocketServerEndpoint implements InitializingBean {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
@@ -40,6 +44,11 @@ public class WebsocketServerEndpoint implements InitializingBean {
     @Autowired
     private ApplicationContext applicationContext;
 
+    /**
+     * 重新实现 #onOpen(Session session, EndpointConfig config) 方法，实现连接时，使用 accessToken 参数进行用户认证。
+     * @param session
+     * @param config
+     */
     @OnOpen
     public void onOpen(Session session, EndpointConfig config) {
         logger.info("[onOpen][session({}) 接入]", session);
@@ -91,6 +100,10 @@ public class WebsocketServerEndpoint implements InitializingBean {
         logger.info("[onClose][session({}) 发生异常]", session, throwable);
     }
 
+    /**
+     * 实现 InitializingBean 接口，在 #afterPropertiesSet() 方法中，扫描所有 MessageHandler Bean ，添加到 MessageHandler 集合中。
+     * @throws Exception
+     */
     @Override
     public void afterPropertiesSet() throws Exception {
         // 通过 ApplicationContext 获得所有 MessageHandler Bean
