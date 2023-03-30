@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * 用户 DO
  */
-@Table(name = "users")
+@Table(name = "test_users")
 public class UserDO {
 
     /**
